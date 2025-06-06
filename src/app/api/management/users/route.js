@@ -24,13 +24,29 @@ export async function GET(request) {
       );
     }
 
-    const employees = await Employee.find()
-      .populate('user', 'email firstName lastName')
+    // Get all users with their employee data if they exist
+    const users = await User.find()
+      .select('email firstName lastName role isActive createdAt')
       .sort({ createdAt: -1 });
 
-    return NextResponse.json(employees);
+    // For users with employee role, also fetch their employee data
+    const usersWithEmployeeData = await Promise.all(
+      users.map(async (user) => {
+        if (user.role === 'employee') {
+          const employeeData = await Employee.findOne({ user: user._id })
+            .select('employeeId department position salary hireDate');
+          return {
+            ...user.toJSON(),
+            employeeData: employeeData || null
+          };
+        }
+        return user.toJSON();
+      })
+    );
+
+    return NextResponse.json(usersWithEmployeeData);
   } catch (error) {
-    console.error('Management employees error:', error);
+    console.error('Management users error:', error);
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
