@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Button from './Button';
 
 const LoginForm = ({ userType, isSignup, onToggleMode, onBack, onSubmit }) => {
   const [formData, setFormData] = useState({
@@ -108,31 +109,34 @@ const LoginForm = ({ userType, isSignup, onToggleMode, onBack, onSubmit }) => {
               </div>
             )}
 
-            <button
+            <Button
               type="submit"
+              variant="primary"
               disabled={loading}
-              className="w-full py-3 px-4 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+              className="w-full py-3"
             >
               {loading ? 'Please wait...' : (isSignup ? 'Create Account' : 'Sign In')}
-            </button>
+            </Button>
 
             <div className="text-center space-y-3">
-              <button
+              <Button
                 type="button"
-                className="text-blue-600 hover:text-blue-800 font-medium"
+                variant="secondary"
                 onClick={onToggleMode}
+                className="text-blue-600 hover:text-blue-800 font-medium"
               >
                 {isSignup ? 'Already have an account? Sign in' : 'Need an account? Sign up'}
-              </button>
+              </Button>
               
               <div>
-                <button
+                <Button
                   type="button"
-                  className="text-gray-500 hover:text-gray-700"
+                  variant="secondary"
                   onClick={onBack}
+                  className="text-gray-500 hover:text-gray-700"
                 >
                   ← Back to main page
-                </button>
+                </Button>
               </div>
             </div>
           </form>

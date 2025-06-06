@@ -34,7 +34,7 @@ export async function GET(request) {
       users.map(async (user) => {
         if (user.role === 'employee') {
           const employeeData = await Employee.findOne({ user: user._id })
-            .select('employeeId department position salary hireDate');
+            .select('employeeId department position salary hireDate skills personalInfo isActive createdAt updatedAt');
           return {
             ...user.toJSON(),
             employeeData: employeeData || null

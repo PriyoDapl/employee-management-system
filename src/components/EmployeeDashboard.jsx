@@ -1,18 +1,15 @@
-import Button from './Button';
-import { useState } from 'react';
-import ManagementDetails from './ManagementDetails';
-import AllEmployees from './AllEmployees';
-import ProjectsManagement from './ProjectsManagement';
+'use client';
 
-const Dashboard = ({ user, title, onLogout }) => {
+import { useState } from 'react';
+import Button from './Button';
+import EmployeeDetails from './EmployeeDetails';
+import AssignedProjects from './AssignedProjects';
+
+const EmployeeDashboard = ({ user, onLogout }) => {
   const [currentView, setCurrentView] = useState('dashboard');
 
   const handleAddDetails = () => {
     setCurrentView('details');
-  };
-
-  const handleViewEmployees = () => {
-    setCurrentView('employees');
   };
 
   const handleViewProjects = () => {
@@ -24,44 +21,32 @@ const Dashboard = ({ user, title, onLogout }) => {
   };
 
   if (currentView === 'details') {
-    return <ManagementDetails user={user} onBack={handleBackToDashboard} />;
-  }
-
-  if (currentView === 'employees') {
-    return <AllEmployees user={user} onBack={handleBackToDashboard} />;
+    return <EmployeeDetails user={user} onBack={handleBackToDashboard} />;
   }
 
   if (currentView === 'projects') {
-    return <ProjectsManagement user={user} onBack={handleBackToDashboard} />;
+    return <AssignedProjects user={user} onBack={handleBackToDashboard} />;
   }
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
-      <div className="bg-white text-gray-900 rounded-lg shadow-lg p-8 max-w-md w-full">
+      <div className="bg-white rounded-lg shadow-lg p-8 max-w-md w-full">
         <div className="text-center mb-6">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">
             Hello {user?.email}
           </h1>
           <p className="text-gray-600 mb-6">
-            Welcome to your Management Dashboard
+            Welcome to your Employee Dashboard
           </p>
         </div>
-        
+
         <div className="space-y-4">
           <Button
             onClick={handleAddDetails}
             variant="primary"
             className="w-full"
           >
-            Add/Update Details
-          </Button>
-
-          <Button
-            onClick={handleViewEmployees}
-            variant="primary"
-            className="w-full"
-          >
-            View All Employees
+            Add/Update Personal Details
           </Button>
 
           <Button
@@ -69,7 +54,7 @@ const Dashboard = ({ user, title, onLogout }) => {
             variant="primary"
             className="w-full"
           >
-            Create/View Projects
+            View Assigned Projects
           </Button>
 
           <Button
@@ -80,10 +65,9 @@ const Dashboard = ({ user, title, onLogout }) => {
             Logout
           </Button>
         </div>
-
       </div>
     </div>
   );
-}
+};
 
-export default Dashboard;
+export default EmployeeDashboard;

@@ -2,9 +2,9 @@
 
 import { useAuthRouting } from '../../hooks/useAuthRouting';
 import LoadingScreen from '../../components/LoadingScreen';
-import Dashboard from '../../components/Dashboard';
+import EmployeeDashboard from '../../components/EmployeeDashboard';
 
-export default function EmployeeDashboard() {
+export default function EmployeePage() {
   const { user, loading, handleLogout } = useAuthRouting();
 
   if (loading || !user) {
@@ -12,9 +12,8 @@ export default function EmployeeDashboard() {
   }
 
   return (
-    <Dashboard 
+    <EmployeeDashboard 
       user={user}
-      title="Employee Dashboard"
       onLogout={handleLogout}
     />
   );

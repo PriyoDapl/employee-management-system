@@ -5,7 +5,7 @@ const PortalSection = ({
   onLogin, 
   onSignup, 
   loginVariant = 'primary',
-  signupVariant = 'secondary'
+  signupVariant = 'primary'
 }) => {
   return (
     <div className="border border-gray-200 rounded-lg p-6">

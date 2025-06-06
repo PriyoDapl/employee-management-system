@@ -10,9 +10,9 @@ const WelcomeScreen = ({ onEmployeeLogin, onEmployeeSignup, onManagementLogin, o
             <h1 className="text-4xl font-bold text-gray-800 mb-3">
               Employee Management System
             </h1>
-            <p className="text-gray-600">
+            {/* <p className="text-gray-600">
               Please choose your login type
-            </p>
+            </p> */}
           </div>
           
           {/* Login Options */}
@@ -22,16 +22,17 @@ const WelcomeScreen = ({ onEmployeeLogin, onEmployeeSignup, onManagementLogin, o
               onLogin={onEmployeeLogin}
               onSignup={onEmployeeSignup}
               loginVariant="primary"
-              signupVariant="secondary"
+              signupVariant="primary"
             />
 
-            <PortalSection
+            {/* Below code is For management signup mostly */}
+            {/* <PortalSection
               title="Management Portal"
               onLogin={onManagementLogin}
               onSignup={onManagementSignup}
-              loginVariant="success"
-              signupVariant="successSecondary"
-            />
+              loginVariant="primary"
+              signupVariant="primary"
+            /> */}
           </div>
         </div>
       </div>
