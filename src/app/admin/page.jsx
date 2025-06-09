@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../../context/AuthContext';
 import LoadingScreen from '../../components/LoadingScreen';
-import Dashboard from '../../components/Dashboard';
+import ManagementDashboardWithSidebar from '../../components/ManagementDashboardWithSidebar';
 
 export default function AdminDashboard() {
   const { user, logout, loading } = useAuth();
@@ -43,9 +43,8 @@ export default function AdminDashboard() {
   }
 
   return (
-    <Dashboard 
+    <ManagementDashboardWithSidebar 
       user={user}
-      title="Admin Dashboard"
       onLogout={handleLogout}
     />
   );

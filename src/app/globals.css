@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* Custom styles for react-pro-sidebar */
+.ps-sidebar-container {
+  height: 100vh !important;
+}
+
+.ps-menu-button {
+  transition: background-color 0.2s ease !important;
+}
+
+.ps-menu-button:hover {
+  background-color: rgba(59, 130, 246, 0.1) !important;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

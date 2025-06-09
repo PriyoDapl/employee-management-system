@@ -2,7 +2,7 @@
 
 import { useAuthRouting } from '../../hooks/useAuthRouting';
 import LoadingScreen from '../../components/LoadingScreen';
-import EmployeeDashboard from '../../components/EmployeeDashboard';
+import EmployeeDashboardWithSidebar from '../../components/EmployeeDashboardWithSidebar';
 
 export default function EmployeePage() {
   const { user, loading, handleLogout } = useAuthRouting();
@@ -12,7 +12,7 @@ export default function EmployeePage() {
   }
 
   return (
-    <EmployeeDashboard 
+    <EmployeeDashboardWithSidebar 
       user={user}
       onLogout={handleLogout}
     />

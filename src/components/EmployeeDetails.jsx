@@ -109,8 +109,8 @@ const EmployeeDetails = ({ user, onBack }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-8">
+    <div className="p-8">
+      <div className="bg-white rounded-lg shadow-lg p-8">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-900">
             {isEditing ? 'Edit Your Details' : 'Add Your Details'}

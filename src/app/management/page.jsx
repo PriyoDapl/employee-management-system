@@ -2,7 +2,7 @@
 
 import { useAuthRouting } from '../../hooks/useAuthRouting';
 import LoadingScreen from '../../components/LoadingScreen';
-import Dashboard from '../../components/Dashboard';
+import ManagementDashboardWithSidebar from '../../components/ManagementDashboardWithSidebar';
 
 export default function ManagementDashboard() {
   const { user, loading, handleLogout } = useAuthRouting();
@@ -12,9 +12,8 @@ export default function ManagementDashboard() {
   }
 
   return (
-    <Dashboard 
+    <ManagementDashboardWithSidebar 
       user={user}
-      title="Management Dashboard"
       onLogout={handleLogout}
     />
   );

@@ -54,7 +54,7 @@ const AllEmployees = ({ user, onBack }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="p-8 flex items-center justify-center">
         <div className="text-center">
           <p className="text-gray-600">Loading employees...</p>
         </div>
@@ -63,7 +63,7 @@ const AllEmployees = ({ user, onBack }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="p-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-900">
